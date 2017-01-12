@@ -6,6 +6,8 @@ import android.app.SearchableInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,7 +24,7 @@ import cn.suxiangbao.ofo.adapter.OFOListAdapter;
 import cn.suxiangbao.ofo.db.OFODao;
 import cn.suxiangbao.ofo.entity.OFOBike;
 
-public class MainActivity extends Activity{
+public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
 
@@ -39,7 +41,8 @@ public class MainActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         ofoDao = new OFODao(this);
         initComponent();
 
